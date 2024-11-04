@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLogin.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="login-container">
+        <h1>Login</h1>
+        <form action="" id="login-form">
+            <!-- <legend>Acesso à aplicação</legend> -->
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Nome ou e-mail:" autocapitalize="off">
+            <label for="password">Senha de acesso</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha:">
+            <a href="#" id="forgot-pass">Esqueci minha senha</a>
+            <input type="submit" value="Login" id="btn-login" style="color: white;">
+        </form>
+        <p id="error-message" style="color: red; display: none;">Usuário ou senha incorreta.</p>
+    </div>
+
+    <div id="register-container">
+        <p>Não tem registro?</p>
+        <br>
+        <center><a href="#">Registrar-se</a></center>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); //evita o envio do formulário
+
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('password').value;
+
+            if (usuario === 'ADMIN' && senha === '123') {
+                alert('Login bem-sucedido!');
+                // redireciona ou carrega a próxima página aqui
+                window.location.href = 'index.html'; //exemplo de redirecionamento
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
